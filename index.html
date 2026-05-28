@@ -27,16 +27,15 @@ body{
   width:58px;
   height:58px;
 
-  border:none;
   border-radius:999px;
-
-  cursor:pointer;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  color:#fff;
+  text-decoration:none;
+
+  color:#ffffff;
   font-size:28px;
   font-weight:700;
 
@@ -85,71 +84,14 @@ body{
 
 <body>
 
-<button
+<a
   class="backTop"
-  onclick="goTop()"
+  href="https://digitalgojp.sharepoint.com/sites/NTA_IBHub12/SitePages/test.aspx"
+  target="_top"
   aria-label="ページ上部へ戻る"
 >
   <span class="arrow">↑</span>
-</button>
-
-<script>
-
-function goTop(){
-
-  const spoPageUrl =
-    'https://digitalgojp.sharepoint.com/sites/NTA_IBHub12/SitePages/test.aspx';
-
-  console.log('button clicked');
-
-  /* 親iframeスクロール試験 */
-  try{
-
-    window.parent.scrollTo({
-      top:0,
-      behavior:'smooth'
-    });
-
-    console.log('parent scroll executed');
-
-  }catch(e){
-
-    console.log('parent scroll blocked');
-  }
-
-  /* 最上位ウィンドウスクロール試験 */
-  try{
-
-    window.top.scrollTo({
-      top:0,
-      behavior:'smooth'
-    });
-
-    console.log('top scroll executed');
-
-  }catch(e){
-
-    console.log('top scroll blocked');
-  }
-
-  /* 保険でページ再表示 */
-  setTimeout(function(){
-
-    try{
-
-      window.top.location.href = spoPageUrl;
-
-    }catch(e){
-
-      window.location.href = spoPageUrl;
-
-    }
-
-  },300);
-
-}
-
-</script>
+</a>
 
 </body>
 </html>
