@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Back To Top</title>
+<title>Back To Top Smooth Test</title>
 
 <style>
 html,
@@ -22,26 +22,22 @@ body{
   position:fixed;
   right:20px;
   bottom:20px;
-
   width:58px;
   height:58px;
   border-radius:999px;
+  border:none;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
   text-decoration:none;
-  color:#ffffff;
+  color:#fff;
   font-size:28px;
   font-weight:700;
+  cursor:pointer;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(14,165,233,.92),
-      rgba(99,102,241,.92)
-    );
+  background:linear-gradient(135deg,rgba(14,165,233,.92),rgba(99,102,241,.92));
 
   box-shadow:
     0 12px 32px rgba(0,0,0,.28),
@@ -50,19 +46,11 @@ body{
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
 
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    filter .25s ease;
+  transition:.25s ease;
 }
 
 .backTop:hover{
   transform:translateY(-4px) scale(1.06);
-
-  box-shadow:
-    0 18px 40px rgba(14,165,233,.35),
-    inset 0 1px 0 rgba(255,255,255,.45);
-
   filter:brightness(1.08);
 }
 
@@ -82,11 +70,34 @@ body{
   class="backTop"
   href="https://digitalgojp.sharepoint.com/sites/NTA_IBHub12/SitePages/test.aspx#%E3%81%82"
   target="_top"
+  onclick="trySmooth(event)"
   aria-label="ページ上部へ戻る"
   title="ページ上部へ戻る"
 >
   <span class="arrow">↑</span>
 </a>
+
+<script>
+function trySmooth(e){
+
+  const targetUrl =
+    'https://digitalgojp.sharepoint.com/sites/NTA_IBHub12/SitePages/test.aspx#%E3%81%82';
+
+  try{
+
+    window.top.scrollTo({
+      top:0,
+      behavior:'smooth'
+    });
+
+    e.preventDefault();
+
+  }catch(err){
+
+    // ダメなら通常の target="_top" に任せる
+  }
+}
+</script>
 
 </body>
 </html>
